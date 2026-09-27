@@ -67,7 +67,7 @@ jobs:
 
       - name: Test summary
         if: always()
-        uses: mikepenz/action-junit-report@v5
+        uses: mikepenz/action-junit-report@v6
         with:
           report_paths: reports/junit.xml
           check_name: Test results (${{ matrix.browser }})
