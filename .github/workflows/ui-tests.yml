@@ -19,7 +19,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -47,7 +47,7 @@ jobs:
       TEST_USER_NAME: ${{ secrets.TEST_USER_NAME }}
       MARKER: ${{ (github.event_name == 'push' || github.event_name == 'pull_request') && 'smoke' || 'regression' }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: actions/setup-python@v5
         with:
@@ -109,7 +109,7 @@ jobs:
           merge-multiple: true
 
       - name: Fetch previous report (for history)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         continue-on-error: true
         with:
           ref: gh-pages
