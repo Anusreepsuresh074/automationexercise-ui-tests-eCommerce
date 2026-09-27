@@ -1,0 +1,28 @@
+# Env
+.env
+
+# Cached auth session
+auth/*.json
+!auth/.gitkeep
+
+# Playwright MCP dev-session artifacts
+.playwright-mcp/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Pytest / Allure runtime output
+.pytest_cache/
+reports/allure-results/*
+!reports/allure-results/.gitkeep
+reports/allure-report/*
+!reports/allure-report/.gitkeep
+reports/created-resources.jsonl
+reports/traces/
+.ruff_cache/
+.mypy_cache/
+reports/junit.xml

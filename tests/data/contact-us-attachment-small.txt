@@ -1,0 +1,5 @@
+This is a small, synthetic placeholder file used only to exercise the
+Contact Us page's file-upload field mechanism. It has no real content
+significance — automationexercise.com documents no required file
+type/size for this field, so this generic text file is sufficient to
+confirm the upload control itself works.

@@ -1,0 +1,12 @@
+environments:
+  prod:
+    base_url: "https://automationexercise.com"
+
+viewport:
+  width: 1920
+  height: 1080
+
+timeouts:
+  navigation_ms: 15000
+  action_ms: 10000
+  expect_ms: 10000

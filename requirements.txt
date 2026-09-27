@@ -1,0 +1,8 @@
+playwright==1.49.1
+pytest==8.3.3
+pytest-rerunfailures==14.0
+pytest-xdist==3.6.1
+allure-pytest==2.13.5
+pyyaml==6.0.2
+python-dotenv==1.0.1
+axe-playwright-python==0.1.8
