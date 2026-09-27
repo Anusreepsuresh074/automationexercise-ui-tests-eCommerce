@@ -1,7 +1,7 @@
 # Reproducible test runner: the official Playwright image already has the
 # browsers and their system dependencies, pinned to the same version as
 # requirements.txt.
-FROM mcr.microsoft.com/playwright/python:v1.49.1-noble
+FROM mcr.microsoft.com/playwright/python:v1.63.0-noble
 
 WORKDIR /app
 COPY requirements.txt .

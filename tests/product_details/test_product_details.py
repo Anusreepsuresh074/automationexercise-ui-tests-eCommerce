@@ -18,7 +18,7 @@ PRODUCT_ID = td.BLUE_TOP.id
 def test_product_details_renders(page):
     """Matrix #27: the product page shows name, price, quantity and Add to cart."""
     details_page = ProductDetailsPage(page)
-    details_page.goto(PRODUCT_ID)
+    details_page.goto(product_id=PRODUCT_ID)
     expect(details_page.name).to_have_text(td.BLUE_TOP.name)
     expect(details_page.price).to_have_text(td.BLUE_TOP.price)
     expect(details_page.quantity).to_have_value("1")
@@ -57,7 +57,7 @@ def test_product_details_quantity_non_numeric_input(page):
     keystrokes (Chromium drops them; Firefox shows them but reports an
     empty value)."""
     details_page = ProductDetailsPage(page)
-    details_page.goto(PRODUCT_ID)
+    details_page.goto(product_id=PRODUCT_ID)
     expect(details_page.quantity).to_have_attribute("type", "number")
     details_page.type_quantity(td.NON_NUMERIC_QUANTITY)
     expect(details_page.quantity).not_to_have_value(re.compile(r"[^\d]"))
@@ -69,7 +69,7 @@ def test_product_details_quantity_non_numeric_input(page):
 def test_product_review_submit_valid(page):
     """Matrix #31: a complete review shows "Thank you for your review."."""
     details_page = ProductDetailsPage(page)
-    details_page.goto(PRODUCT_ID)
+    details_page.goto(product_id=PRODUCT_ID)
     details_page.submit_review(**td.VALID_REVIEW)
     expect(details_page.review_success).to_be_visible()
 
@@ -81,7 +81,7 @@ def test_product_review_empty_field(page):
     """Matrix #32: all review fields are required — the browser blocks an
     empty submission."""
     details_page = ProductDetailsPage(page)
-    details_page.goto(PRODUCT_ID)
+    details_page.goto(product_id=PRODUCT_ID)
     details_page.submit_review("", "", "")
     assert details_page.is_rejected_as_missing(details_page.review_name)
     expect(details_page.review_success).to_be_hidden()
@@ -93,7 +93,7 @@ def test_product_review_empty_field(page):
 def test_product_review_invalid_email_format(page):
     """Matrix #33: the review email field rejects a malformed address."""
     details_page = ProductDetailsPage(page)
-    details_page.goto(PRODUCT_ID)
+    details_page.goto(product_id=PRODUCT_ID)
     details_page.submit_review(td.VALID_REVIEW["name"], td.MALFORMED_EMAIL, td.VALID_REVIEW["review"])
     assert details_page.is_rejected_as_malformed(details_page.review_email)
     expect(details_page.review_success).to_be_hidden()

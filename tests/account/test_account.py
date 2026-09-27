@@ -45,6 +45,6 @@ def test_delete_account_completes(page, account_api, new_account):
     expect(deleted_page.heading).to_be_visible()
     expect(deleted_page.confirmation_text).to_be_visible()
     expect(deleted_page.nav_signup_login).to_be_visible()
-    assert not account_api.delete_account(
-        new_account["email"], new_account["password"]
-    ), "account still exists after deleting it through the UI"
+    assert not account_api.delete_account(new_account["email"], new_account["password"]), (
+        "account still exists after deleting it through the UI"
+    )

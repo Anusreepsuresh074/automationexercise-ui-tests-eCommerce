@@ -125,7 +125,7 @@ Also pinned by a test, for a product decision: `/delete_account` has no server-s
 | `src/config/config_loader.py` | Reads `config.yaml` + `.env` overrides (`TEST_ENV`, `BASE_URL`) and the test account |
 | `src/api/account_api.py` | Site's account API, for test data setup/cleanup |
 | `src/core/browser_base.py` | Browser/context launch, ad blocking, cached-session cookie restore |
-| `src/pages/` | One page object per page; `BasePage` holds the shared header/nav and `goto()` |
+| `src/pages/` | One page object per page; `BasePage` holds the shared header/nav and `goto()` (fills URL placeholders like `{product_id}`) |
 | `src/pages/components/` | UI pieces shared by several pages (the "Added!" cart modal) |
 | `src/utils/accessibility.py` | axe-core scan, attaches the full result to Allure |
 | `src/utils/resource_registry.py` | Audit log of created test accounts (`reports/created-resources.jsonl`) |

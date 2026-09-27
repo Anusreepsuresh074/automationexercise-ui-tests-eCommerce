@@ -45,13 +45,17 @@ def _attach_failure_artifacts(item, context):
 @pytest.fixture(autouse=True)
 def _allure_labels(request, browser_name):
     """Groups results by flow (the test's folder) in the Allure report, maps
-    the p0/p1 priority markers to Allure severity, and tags the browser."""
+    the p0/p1 priority markers to Allure severity, and tags the browser.
+    The browser is also a test parameter, so when CI merges all browsers'
+    results into one report, each browser's run counts as its own result
+    instead of being folded in as a retry of another browser's."""
     allure.dynamic.feature(request.node.path.parent.name)
     if request.node.get_closest_marker("p0"):
         allure.dynamic.severity(allure.severity_level.CRITICAL)
     elif request.node.get_closest_marker("p1"):
         allure.dynamic.severity(allure.severity_level.NORMAL)
     allure.dynamic.tag(browser_name)
+    allure.dynamic.parameter("browser", browser_name)
 
 
 @pytest.fixture(scope="session")

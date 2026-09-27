@@ -55,7 +55,7 @@ def pytest_sessionstart(session):
     config = load_config(env=session.config.getoption("--env"))
     environment = {
         "Environment": config.env,
-        "Base URL": config.base_url,
+        "Base_URL": config.base_url,  # no spaces: .properties treats a space as the separator
         "Browser": session.config.getoption("--browser"),
         "Viewport": f"{config.viewport.width}x{config.viewport.height}",
         "Python": platform.python_version(),

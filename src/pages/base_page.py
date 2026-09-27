@@ -15,9 +15,13 @@ class BasePage:
         self.nav_logout = page.locator('a[href="/logout"]')
         self.nav_delete_account = page.locator('a[href="/delete_account"]')
 
-    def goto(self) -> None:
-        with allure.step(f"Open {self.URL}"):
-            self.page.goto(self.URL)
+    def goto(self, **url_params: object) -> None:
+        """Opens this page. A URL with placeholders, like
+        "/product_details/{product_id}", takes their values by name:
+        goto(product_id=1)."""
+        url = self.URL.format(**url_params)
+        with allure.step(f"Open {url}"):
+            self.page.goto(url)
 
     def logged_in_as(self, name: str) -> Locator:
         return self.page.get_by_text(f"Logged in as {name}")

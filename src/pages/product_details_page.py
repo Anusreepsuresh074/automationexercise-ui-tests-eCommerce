@@ -22,10 +22,6 @@ class ProductDetailsPage(BasePage):
         self.review_submit = page.locator("#button-review")
         self.review_success = page.get_by_text("Thank you for your review.")
 
-    @allure.step("Open product {product_id}")
-    def goto(self, product_id: int) -> None:
-        self.page.goto(self.URL.format(product_id=product_id))
-
     @allure.step("Set quantity to {quantity}")
     def set_quantity(self, quantity: str) -> None:
         self.quantity.fill(str(quantity))
@@ -42,7 +38,7 @@ class ProductDetailsPage(BasePage):
 
     @allure.step("Add product {product_id} to cart and open the cart")
     def add_to_cart_and_open_cart(self, product_id: int, quantity: str = "1") -> None:
-        self.goto(product_id)
+        self.goto(product_id=product_id)
         self.set_quantity(quantity)
         self.add_to_cart()
         self.added_to_cart_modal.view_cart()
