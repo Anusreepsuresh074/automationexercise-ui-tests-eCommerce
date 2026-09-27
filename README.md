@@ -1,5 +1,8 @@
 # UI Automation — automationexercise.com
 
+![UI Tests](https://github.com/Anusreepsuresh074/automationexercise-ui-tests-eCommerce/actions/workflows/ui-tests.yml/badge.svg)
+**[Live test report](https://anusreepsuresh074.github.io/automationexercise-ui-tests-eCommerce/)**
+
 End-to-end UI test automation for [automationexercise.com](https://automationexercise.com), a public e-commerce practice site, built with **Playwright (Python) + pytest** using the **Page Object Model**.
 
 - **58 tests** (48 designed cases) across 9 user flows plus automated accessibility scans, each traced to a row in the [test case matrix](context/ui-test-case-matrix.md)
