@@ -1,4 +1,4 @@
-# UI Automation — automationexercise.com
+# UI Test Automation: automationexercise.com
 
 ![UI Tests](https://github.com/Anusreepsuresh074/automationexercise-ui-tests-eCommerce/actions/workflows/ui-tests.yml/badge.svg)
 **[Live test report](https://anusreepsuresh074.github.io/automationexercise-ui-tests-eCommerce/)**
@@ -8,6 +8,8 @@ End-to-end UI test automation for [automationexercise.com](https://automationexe
 - **58 tests** (48 designed cases) across 9 user flows plus automated accessibility scans, each traced to a row in the [test case matrix](context/ui-test-case-matrix.md)
 - **53 passed, 5 xfailed** on Chromium, Firefox and WebKit, running **in parallel** (`-n 4`, ~1.5 min) — the 5 are **real site defects this suite found** (see [Defects found](#defects-found))
 - No flaky tests of its own — the only intermittent failures are occasional >15 s page loads on the live site, absorbed by 2 automatic retries. Failures attach a **screenshot + Playwright trace** to the Allure report
+
+The API side of my work (pytest, Postman + Newman) and performance testing (JMeter) are on [my GitHub profile](https://github.com/Anusreepsuresh074).
 
 ## Stack
 

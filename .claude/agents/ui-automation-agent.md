@@ -22,7 +22,7 @@ You run the UI test automation workflow for this project by invoking the shared 
 
 - **Project name:** automationexercise.com (public e-commerce practice site)
 - **Repo:** N/A — public third-party site, no source repo access; UI-only automation against the live site
-- **Team / owner:** portfolio project (interview showcase), single contributor
+- **Team / owner:** personal project (Anusree P), single contributor
 - **Doc/artifact locations:** none — no PRD/Figma/Jira; scope was defined by live site exploration and decided directly with the user (see Project overrides below)
 - **App base URL(s):** https://automationexercise.com
 - **UI framework/language:** Playwright (Python) + pytest. Reporting: Allure. CI: GitHub Actions (matrixed across browsers). Browsers: Chromium, Firefox, WebKit, desktop viewport only. Environment: `prod` only (live public site, no dev/staging).
@@ -43,14 +43,14 @@ These live flat under `.claude/skills/<name>/SKILL.md` in this repo unless noted
 4. `ui-test-design` — turns `context/ui-context.md` (+ shared `context/business-context.md`) into a reviewed UI test case inventory.
 5. `ui-test-automation` — generates test scripts from the inventory, then executes and validates them against whichever UI framework this project confirmed. Creates real test data via the same runtime registry convention the API suite uses (`reports/created-resources.jsonl`) where UI flows create backend resources.
 6. `teardown` *(shared, top-level skill — `.claude/skills/teardown/`, not UI-specific)* — after the validation phase finishes, **ask the user** ("Run teardown to clear stale test data from before today? (y/n)") and only invoke on yes; it operates on the shared runtime registry regardless of whether entries came from API or UI-driven runs. Never wired into a CI/CD pipeline as an unattended step, even for scheduled regression cleanup — always interactively confirmed.
-7. `create-report` *(planned, from the API automation skill suite — not yet added to `.claude/skills/`)* — turns the run's results into a shareable report. Also usable standalone.
+7. `create-report` *(from the API automation skill suite; not included in this repo — this project's Allure reporting and CI were set up directly)* — turns the run's results into a shareable report. Also usable standalone.
 8. `ci-integration` *(planned, from the API automation skill suite — not yet added to `.claude/skills/`)* — upgrades the CI pipeline stub for this suite too; sharding/environment matrix apply the same way regardless of automation type.
 
 **Optional / ongoing skills:**
 
 - `ui-coverage-audit` — cross-checks the UI test case inventory against `context/ui-context.md` for untested pages/flows and missing case types. Drafted, not yet dogfooded.
 - `change-impact-analysis` *(planned, from the API automation skill suite once generalized — see `.claude/skills/README.md`)* — diffs `context/ui-context.md` against its previous version and flags which UI matrix rows are affected. Not yet copied in.
-- `flaky-test-triage` *(planned, from the API automation skill suite — not yet added to `.claude/skills/`)* — detects flaky UI tests the same way it detects flaky API tests, from run artifacts.
+- `flaky-test-triage` *(from the API automation skill suite; not included in this repo)* — detects flaky UI tests the same way it detects flaky API tests, from run artifacts.
 
 ## Skill sequence / workflow
 
