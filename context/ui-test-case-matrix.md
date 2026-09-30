@@ -93,13 +93,10 @@ Rows tagged **[Assumption]** go beyond what was directly observed — the underl
   - **Third-party ads are blocked** for every test (`src/core/browser_base.py`). Google's AdSense vignette interstitial randomly overlaid the page and swallowed clicks (root cause of row 22's flake, ~1 in 7 runs). Ads are outside the app under test.
   - **Every test runs in its own browser context** (superseding an earlier single-shared-window design, which leaked event listeners between tests and blocked parallel runs). Tests are order-independent and run in parallel with `pytest-xdist`.
   - **Tests clean up the accounts they create** (rows 13, 15, 17, 42) through the site's account API (`/api/deleteAccount`) in the `new_account` fixture's teardown — pass or fail. Row 42's throwaway account is also *created* through the API, since account creation isn't what that row verifies.
-  - **Visibility checks now always wait.** Every positive `.is_visible()` (a one-shot check with no wait) was replaced with `visible_within()`. Chromium happened to be fast enough to hide the race; Firefox exposed it in 9 tests.
+  - **Visibility checks now always wait.** Every positive `.is_visible()` (a one-shot check with no wait) was replaced with Playwright's web-first `expect(...).to_be_visible()`, which retries until the element appears or the timeout expires. Chromium happened to be fast enough to hide the race; Firefox exposed it in 9 tests.
   - **Cart → checkout waits for the page to load.** "Proceed To Checkout" is a jQuery click handler, not a link — clicking before the cart page's scripts run does nothing (confirmed on Firefox).
   - **Negative cases assert the real mechanism** — the browser's native constraint validation (`validationMessage`) for required/`type="email"` fields — instead of only "login did not succeed".
-  - Full suite (before the 5-defect rewrite): **Chromium** 44 passed, 3 xfailed, 0 retries needed; **Firefox** 44 passed, 3 xfailed (occasional live-site navigation timeouts >15s are absorbed by the built-in retries). **WebKit** verified later in the project's Docker image (the host lacks WebKit's system libraries): full suite 53 passed, 5 xfailed.
+  - Full suite (58 tests): **53 passed, 5 xfailed** on each of Chromium, Firefox and WebKit (nightly CI run of 2026-09-29; on Firefox and WebKit, `test_checkout_happy_path` passed only on its automatic retry).
 - **Browser/viewport matrix** — tied to the 3 browsers this project's `create-ui-framework-structure` run confirmed (Chromium, Firefox, WebKit; desktop viewport only). No mobile/tablet viewport was agreed, so no viewport-boundary cases were designed beyond that.
 - **No PRD/Figma/Jira exist for this project** — every Rule cited above traces to `context/ui-context.md`/`context/ui-auth.md`'s own live-observed content.
 - No exact-duplicate rows were found or removed during dedup; no `⚠ possible duplicate` rows either.
-
----
-**STOP — review the matrix above before any test code is written.**

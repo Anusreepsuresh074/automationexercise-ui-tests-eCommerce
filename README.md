@@ -1,13 +1,13 @@
 # UI Test Automation: automationexercise.com
 
 ![UI Tests](https://github.com/Anusreepsuresh074/automationexercise-ui-tests-eCommerce/actions/workflows/ui-tests.yml/badge.svg)
-**[Live test report](https://anusreepsuresh074.github.io/automationexercise-ui-tests-eCommerce/)**
+**[Test Summary Report](docs/test-summary-report.md)** · **[Live test report](https://anusreepsuresh074.github.io/automationexercise-ui-tests-eCommerce/)** (latest nightly full regression, 3 browsers)
 
 End-to-end UI test automation for [automationexercise.com](https://automationexercise.com), a public e-commerce practice site, built with **Playwright (Python) + pytest** using the **Page Object Model**.
 
 - **58 tests** (48 designed cases) across 9 user flows plus automated accessibility scans, each traced to a row in the [test case matrix](context/ui-test-case-matrix.md)
-- **53 passed, 5 xfailed** on Chromium, Firefox and WebKit, running **in parallel** (`-n 4`, ~1.5 min) — the 5 are **real site defects this suite found** (see [Defects found](#defects-found))
-- No flaky tests of its own — the only intermittent failures are occasional >15 s page loads on the live site, absorbed by 2 automatic retries. Failures attach a **screenshot + Playwright trace** to the Allure report
+- **53 passed, 5 xfailed** on Chromium, Firefox and WebKit, running **in parallel** (`-n 4`; the nightly CI run of all 3 browsers takes ~3 min) — the 5 are **real site defects this suite found** (see [Defects found](#defects-found))
+- Tests are isolated and order-independent, but they run against the live public site, so its slow page loads (>15 s) and outages do cause occasional failures, and `test_checkout_happy_path` sometimes passes only on retry. Most are absorbed by 2 automatic retries; the rest are visible in the report's history (e.g. the failed 28 Sep nightly). Failures attach a **screenshot + Playwright trace** to the Allure report
 
 The API side of my work (pytest, Postman + Newman) and performance testing (JMeter) are on [my GitHub profile](https://github.com/Anusreepsuresh074).
 
@@ -19,7 +19,7 @@ The API side of my work (pytest, Postman + Newman) and performance testing (JMet
 | Pattern | Page Object Model + reusable components, web-first `expect` assertions, API-backed test setup/cleanup |
 | Isolation | Fresh browser context per test — safe to run in parallel with `pytest-xdist` |
 | Reporting | Allure — step-level actions, per-flow features, failure screenshot + trace |
-| CI | GitHub Actions — lint → smoke on every push/PR, full regression nightly on 3 browsers, Allure report with history published to GitHub Pages |
+| CI | GitHub Actions — lint → smoke on every push/PR, full regression nightly (and on demand) on 3 browsers; the regression's Allure report, with history, is published to GitHub Pages |
 | Browsers | Chromium, Firefox, WebKit (desktop viewport) |
 | Accessibility | axe-core WCAG scans of key pages against a known-violations baseline |
 | Code quality | ruff (lint + format) via pre-commit and CI, mypy type checking, `--strict-markers` |
@@ -49,7 +49,7 @@ flowchart LR
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
-pip install -r requirements-dev.txt     # runtime deps + ruff
+pip install -r requirements-dev.txt     # runtime deps + ruff, mypy, pre-commit
 playwright install --with-deps
 pre-commit install                      # ruff lint + format on every commit
 cp .env.example .env                    # fill in TEST_EMAIL / TEST_PASSWORD / TEST_USER_NAME for the fixed test account
@@ -94,7 +94,7 @@ allure open reports/allure-report
 playwright show-trace reports/traces/<test>.zip   # step-by-step replay of a failed test
 ```
 
-Each failed test carries a full-page screenshot and its Playwright trace (DOM snapshots, network, console) in the Allure report. In CI, every browser's results are merged into one Allure report with run-over-run history and published to GitHub Pages (one-time setup: *Settings → Pages → Deploy from branch → `gh-pages`*). Traces of failed tests are uploaded as build artifacts.
+Each failed test carries a full-page screenshot and its Playwright trace (DOM snapshots, network, console) in the Allure report. In CI, the nightly and manually triggered full regression merges every browser's results into one Allure report with run-over-run history and publishes it to GitHub Pages (one-time setup: *Settings → Pages → Deploy from branch → `gh-pages`*). Push/PR smoke runs don't overwrite it; their Allure results are kept as build artifacts. Traces of failed tests are uploaded as build artifacts too.
 
 CI needs three repository secrets: `TEST_EMAIL`, `TEST_PASSWORD`, `TEST_USER_NAME`.
 
@@ -140,6 +140,8 @@ Also pinned by a test, for a product decision: `/delete_account` has no server-s
 | `conftest.py` | CLI options (`--env`, `--browser`, `--headed`), config, test user, Playwright + API request contexts |
 | `tests/conftest.py` | Per-test context/page fixtures, cached login, throwaway accounts, failure artifacts |
 | `context/` | Test design: app/auth discovery notes and the traced test case matrix |
+| `docs/test-summary-report.md` | Test summary: scope, environment, results per browser, defects, risks |
+| `.claude/` | My own reusable AI-assisted workflow for Claude Code: skills for UI context discovery, test design, automation and coverage audit, used to build this suite ([`.claude/skills/README.md`](.claude/skills/README.md)) |
 | `auth/` | Cached login session (gitignored) |
 
 ## Adding a test

@@ -38,7 +38,7 @@ These live flat under `.claude/skills/<name>/SKILL.md` in this repo unless noted
 **Core build sequence:**
 
 1. `create-ui-framework-structure` — scaffolds the UI test project layout (run once, at project init); genuinely confirms the framework/language rather than assuming one.
-2. `get-ui-context` — discovers the UI surface (pages, components, flows) from the repo/Figma/PRD/docs/Jira and writes `context/ui-context.md`. Works alongside the API track's `get-context` (once updated) to populate the shared `context/business-context.md`.
+2. `get-ui-context` — discovers the UI surface (pages, components, flows) from the repo/Figma/PRD/docs/Jira and writes `context/ui-context.md`. Also writes its own section of `context/business-context.md` (business rules and product intent), kept between its own markers so an API-side context skill could add a section to the same file later without either overwriting the other.
 3. `get-ui-auth` — resolves the UI-specific layer of authentication (login page/selectors, session shape in the browser), reusing `context/api-auth.md` for the underlying mechanism where one already exists.
 4. `ui-test-design` — turns `context/ui-context.md` (+ shared `context/business-context.md`) into a reviewed UI test case inventory.
 5. `ui-test-automation` — generates test scripts from the inventory, then executes and validates them against whichever UI framework this project confirmed. Creates real test data via the same runtime registry convention the API suite uses (`reports/created-resources.jsonl`) where UI flows create backend resources.
