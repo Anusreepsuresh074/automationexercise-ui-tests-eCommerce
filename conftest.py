@@ -8,9 +8,17 @@ from dotenv import load_dotenv
 from playwright.sync_api import expect, sync_playwright
 
 from src.api.account_api import AccountApi
-from src.config.config_loader import load_config, load_test_user
+from src.config.config_loader import Secret, load_config, load_test_user
 
 load_dotenv()
+
+
+def pytest_assertrepr_compare(op, left, right):
+    """pytest diffs two strings by their raw text, bypassing repr(); keep a
+    Secret (the test account's password) out of assertion diffs."""
+    if isinstance(left, Secret) or isinstance(right, Secret):
+        return [f"{left!r} {op} {right!r}", "(diff hidden: the comparison involves a secret)"]
+    return None
 
 
 def pytest_addoption(parser):

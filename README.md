@@ -41,9 +41,9 @@ flowchart LR
 
 - **Tests say *what*, page objects say *how*.** Tests contain no selectors; every locator is defined once, in the page object that owns it. Tests assert with Playwright's web-first `expect(...)`, which auto-waits and reports the locator, expected and actual value on failure.
 - **Locator strategy:** `get_by_test_id` (the site's `data-qa` attributes) → `get_by_role` / `get_by_text` → CSS ids, in that order of preference.
-- **Every page action is an Allure step** (`@allure.step`), so a report reads like the user journey.
+- **Every page action is an Allure step** (`@allure.step`), so a report reads like the user journey. Actions that take a password use `with allure.step(...)` instead, which records no step parameters.
 - **UI for what's under test, API for everything else.** Throwaway accounts a test needs are created and deleted through the site's public API ([`src/api/account_api.py`](src/api/account_api.py)), so setup is fast and cleanup happens even when a test fails halfway.
-- **No secrets in code.** The test account comes from `.env` / CI secrets, loaded once into a `test_user` fixture.
+- **No secrets in code or reports.** The test account comes from `.env` / CI secrets, loaded once into a `test_user` fixture. Its password `repr()`s as `'********'` (so tracebacks and assertion messages don't show it), and it is masked in a failed test's Playwright trace before the trace is attached or uploaded.
 
 ## Setup
 
@@ -144,7 +144,7 @@ Also pinned by a test, for a product decision: `/delete_account` has no server-s
 
 ## Adding a test
 
-1. **New page?** Add `src/pages/<name>_page.py`: subclass `BasePage`, set `URL`, define every locator in `__init__` (prefer `get_by_test_id` → `get_by_role` / `get_by_text` → CSS), and wrap each user action in `@allure.step`. A UI piece shared by several pages goes in `src/pages/components/`.
+1. **New page?** Add `src/pages/<name>_page.py`: subclass `BasePage`, set `URL`, define every locator in `__init__` (prefer `get_by_test_id` → `get_by_role` / `get_by_text` → CSS), and wrap each user action in `@allure.step` (or `with allure.step(...)` inside the method if it takes a password). A UI piece shared by several pages goes in `src/pages/components/`.
 2. **Add the case to the [matrix](context/ui-test-case-matrix.md)** first — flow, case type, rule, data, expected result.
 3. **Write the test** in `tests/<flow>/test_<flow>.py`: no selectors, only page-object calls and web-first `expect(...)` assertions. Put its data in `tests/<flow>/<flow>_td.py`, and name the matrix row in the docstring.
 4. **Tag it**: its flow marker, a run tier (`smoke` / `sanity` / `regression`) and a priority (`p0` / `p1`). New markers must be registered in `pyproject.toml` (`--strict-markers`).

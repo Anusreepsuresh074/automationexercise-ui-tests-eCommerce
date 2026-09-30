@@ -1,6 +1,8 @@
+import json
 import logging
 import os
 import re
+import zipfile
 
 import allure
 import pytest
@@ -38,8 +40,26 @@ def _attach_failure_artifacts(item, context):
     trace_path = os.path.join(TRACES_DIR, re.sub(r"[^\w.-]+", "_", item.nodeid) + ".zip")
     context.tracing.stop(path=trace_path)
     item._pw_trace_saved = True
+    _redact_trace(trace_path, os.environ.get("TEST_PASSWORD"))
     allure.attach.file(trace_path, name="playwright-trace (open with: playwright show-trace)", extension="zip")
     logger.info("Saved failure trace to %s", trace_path)
+
+
+def _redact_trace(trace_path, secret):
+    """Playwright traces record the text of every fill() / keyboard.type()
+    call, so a failed login test's trace would contain the test account's
+    password. Rewrites the trace with the password masked before it is
+    attached to Allure or uploaded from CI."""
+    if not secret:
+        return
+    needles = {secret.encode(), json.dumps(secret)[1:-1].encode()}
+    with zipfile.ZipFile(trace_path) as src:
+        members = [(info, src.read(info)) for info in src.infolist()]
+    with zipfile.ZipFile(trace_path, "w", zipfile.ZIP_DEFLATED) as dst:
+        for info, data in members:
+            for needle in needles:
+                data = data.replace(needle, b"********")
+            dst.writestr(info, data)
 
 
 @pytest.fixture(autouse=True)

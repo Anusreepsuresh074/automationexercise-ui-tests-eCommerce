@@ -20,6 +20,15 @@ class Timeouts:
     expect_ms: int
 
 
+class Secret(str):
+    """A str that hides its value in repr(), so a password never shows up in
+    pytest tracebacks, assertion diffs or Allure failure messages. It is
+    still a plain str everywhere else (e.g. what Playwright types)."""
+
+    def __repr__(self) -> str:
+        return "'********'"
+
+
 @dataclass(frozen=True)
 class TestUser:
     """The fixed, pre-registered account authenticated tests log in as."""
@@ -27,7 +36,7 @@ class TestUser:
     __test__ = False  # not a pytest test class, despite the name
 
     email: str
-    password: str
+    password: Secret
     name: str
 
 
@@ -68,4 +77,8 @@ def load_test_user() -> TestUser:
         raise RuntimeError(
             f"Missing test account settings: {', '.join(missing)}. Copy .env.example to .env and fill them in."
         )
-    return TestUser(**{field: os.environ[var] for field, var in keys.items()})
+    return TestUser(
+        email=os.environ[keys["email"]],
+        password=Secret(os.environ[keys["password"]]),
+        name=os.environ[keys["name"]],
+    )

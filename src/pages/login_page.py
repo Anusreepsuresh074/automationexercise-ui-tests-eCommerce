@@ -18,11 +18,13 @@ class LoginPage(BasePage):
         self.signup_button = page.get_by_test_id("signup-button")
         self.signup_email_exists_error = page.get_by_text("Email Address already exist!")
 
-    @allure.step("Log in as {email}")
     def login(self, email: str, password: str) -> None:
-        self.login_email.fill(email)
-        self.login_password.fill(password)
-        self.login_button.click()
+        # A context-manager step, not @allure.step: the decorator records every
+        # argument as a step parameter, which would put the password in the report.
+        with allure.step(f"Log in as {email}"):
+            self.login_email.fill(email)
+            self.login_password.fill(password)
+            self.login_button.click()
 
     @allure.step("Log out")
     def logout(self) -> None:

@@ -25,7 +25,6 @@ class SignupPage(BasePage):
         self.mobile_number = page.get_by_test_id("mobile_number")
         self.create_account_button = page.get_by_test_id("create-account")
 
-    @allure.step("Fill account details")
     def fill_account_details(
         self,
         *,
@@ -43,19 +42,21 @@ class SignupPage(BasePage):
         zipcode: str,
         mobile_number: str,
     ) -> None:
-        (self.title_mrs if title == "Mrs" else self.title_mr).check()
-        self.password.fill(password)
-        self.birth_day.select_option(day)
-        self.birth_month.select_option(month)
-        self.birth_year.select_option(year)
-        self.first_name.fill(first_name)
-        self.last_name.fill(last_name)
-        self.address1.fill(address1)
-        self.country.select_option(country)
-        self.state.fill(state)
-        self.city.fill(city)
-        self.zipcode.fill(zipcode)
-        self.mobile_number.fill(mobile_number)
+        # Context-manager step so the password isn't recorded as a step parameter.
+        with allure.step("Fill account details"):
+            (self.title_mrs if title == "Mrs" else self.title_mr).check()
+            self.password.fill(password)
+            self.birth_day.select_option(day)
+            self.birth_month.select_option(month)
+            self.birth_year.select_option(year)
+            self.first_name.fill(first_name)
+            self.last_name.fill(last_name)
+            self.address1.fill(address1)
+            self.country.select_option(country)
+            self.state.fill(state)
+            self.city.fill(city)
+            self.zipcode.fill(zipcode)
+            self.mobile_number.fill(mobile_number)
 
     @allure.step("Submit account details")
     def submit(self) -> None:
