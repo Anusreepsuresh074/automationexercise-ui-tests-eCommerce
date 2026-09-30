@@ -1,0 +1,1 @@
+06:06:20 INFO    src.api.account_api: Deleted account qa.signup.b606044f@example.com via API

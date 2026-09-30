@@ -1,0 +1,1 @@
+[{"values":["prod"],"name":"Environment"},{"values":["https://automationexercise.com"],"name":"Base_URL"},{"values":["chromium, firefox, webkit"],"name":"Browser"},{"values":["1920x1080"],"name":"Viewport"},{"values":["3.12.14"],"name":"Python"},{"values":["1.63.0"],"name":"Playwright"}]
