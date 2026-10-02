@@ -1,0 +1,3 @@
+07:08:53 INFO    src.api.account_api: Created account qa.signup.d39a9187@example.com via API
+07:08:56 INFO    src.api.account_api: Account qa.signup.d39a9187@example.com already gone
+07:08:56 INFO    src.api.account_api: Account qa.signup.d39a9187@example.com already gone
