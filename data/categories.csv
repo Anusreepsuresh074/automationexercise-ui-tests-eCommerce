@@ -1,5 +1,2 @@
 "BROKEN","CATEGORY","FAILED","PASSED","SKIPPED","UNKNOWN"
-"0","Assertion failures — possible regressions","18","0","0","0"
-"34","Live site too slow (timeouts)","0","0","0","0"
-"1","Test/framework errors","0","0","0","0"
 "0","Known site defects (xfail)","0","0","15","0"
