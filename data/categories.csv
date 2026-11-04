@@ -1,2 +1,3 @@
 "BROKEN","CATEGORY","FAILED","PASSED","SKIPPED","UNKNOWN"
+"1","Live site too slow (timeouts)","0","0","0","0"
 "0","Known site defects (xfail)","0","0","15","0"
