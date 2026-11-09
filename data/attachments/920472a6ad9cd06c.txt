@@ -1,0 +1,1 @@
+08:12:49 INFO    src.api.account_api: Account qa.signup.0f0cbea1@example.com already gone
