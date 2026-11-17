@@ -1,0 +1,4 @@
+09:22:44 INFO    src.api.account_api: Created account qa.signup.c74b1026@example.com via API
+09:23:02 INFO    src.api.account_api: Deleted account qa.signup.c74b1026@example.com via API
+09:23:08 INFO    src.api.account_api: Created account qa.signup.77dc64b2@example.com via API
+09:23:24 INFO    src.api.account_api: Deleted account qa.signup.77dc64b2@example.com via API
