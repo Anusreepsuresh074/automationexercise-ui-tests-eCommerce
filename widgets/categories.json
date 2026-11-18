@@ -1,1 +1,1 @@
-{"total":1,"items":[{"uid":"30d055d474a7cc647feffa6a74682529","name":"Known site defects (xfail)","statistic":{"failed":0,"broken":0,"skipped":15,"passed":0,"unknown":0,"total":15}}]}
+{"total":2,"items":[{"uid":"bfd3c41c71eb687d81d2976acaab7ea6","name":"Live site too slow (timeouts)","statistic":{"failed":0,"broken":1,"skipped":0,"passed":0,"unknown":0,"total":1}},{"uid":"30d055d474a7cc647feffa6a74682529","name":"Known site defects (xfail)","statistic":{"failed":0,"broken":0,"skipped":15,"passed":0,"unknown":0,"total":15}}]}
