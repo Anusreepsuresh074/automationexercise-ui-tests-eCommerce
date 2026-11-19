@@ -1,405 +1,407 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"Matrix #4: the email field's native type=""email"" validation blocks
-    the submission before it reaches the server.","2361","test_login_malformed_email_format","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
+"Matrix #14: signing up with an already-registered email shows
+    ""Email Address already exist!"" and never shows the account form.","3184","test_signup_duplicate_email","tests.signup","2026-11-19","passed","2026-11-19","","test_signup","",""
+"Matrix #15: the mobile number is required — the browser blocks the
+    submission and no account is created.","3720","test_signup_missing_required_field","tests.signup","2026-11-19","passed","2026-11-19","","test_signup","",""
 "Matrix #2, #3: wrong password and unregistered email both show the
-    same generic error and never log the user in.","2624","test_login_invalid_credentials[wrong-password]","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #36: cart quantity is a greyed-out button, not an input —
-    quantity can only be chosen on the product page. The ""disabled"" is a
-    CSS class only (not the HTML disabled attribute), so that's what is
-    asserted.","6701","test_cart_quantity_is_not_editable","tests.cart","2026-11-18","passed","2026-11-18","","test_cart","",""
-"Matrix #28: a quantity of 0 should not be added to the cart.","8838","test_product_details_quantity_below_minimum_rejected","tests.product_details","2026-11-18","skipped","2026-11-18","","test_product_details","",""
-"Matrix #31: a complete review shows ""Thank you for your review."".","1058","test_product_review_submit_valid","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
+    same generic error and never log the user in.","4858","test_login_invalid_credentials[unregistered-email]","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #20: a search with no matches shows the heading and zero
+    products (the site has no dedicated ""no results"" message).","6998","test_products_search_no_results","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
 "Matrix #21: a script-injection string in search is treated as plain
-    text — no script runs and results still render.","2841","test_products_search_special_characters_handled_safely","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
+    text — no script runs and results still render.","5117","test_products_search_special_characters_handled_safely","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #44: the required email field blocks an empty submission
+    before the confirm dialog appears.","2530","test_contact_us_empty_required_fields","tests.contact_us","2026-11-19","passed","2026-11-19","","test_contact_us","",""
+"Matrix #26: the search box is keyboard-reachable and Enter submits it.","9137","test_products_search_and_filters_keyboard_accessible","tests.products","2026-11-19","skipped","2026-11-19","","test_products","",""
+"Matrix #39: end-to-end purchase — cart → checkout (address and order
+    review shown) → payment → ""Order Placed!"" with an invoice link.","19644","test_checkout_happy_path","tests.checkout","2026-11-19","passed","2026-11-19","","test_checkout","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","4011","test_global_nav_link_resolves[/]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #38: a logged-out user who proceeds to checkout is asked to
+    register / log in instead of reaching /checkout.","11213","test_checkout_requires_login","tests.checkout","2026-11-19","passed","2026-11-19","","test_checkout","",""
+"Matrix #26: the search box is keyboard-reachable and Enter submits it.","8614","test_products_search_and_filters_keyboard_accessible","tests.products","2026-11-19","skipped","2026-11-19","","test_products","",""
+"Matrix #2, #3: wrong password and unregistered email both show the
+    same generic error and never log the user in.","3763","test_login_invalid_credentials[wrong-password]","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #4: the email field's native type=""email"" validation blocks
+    the submission before it reaches the server.","2229","test_login_malformed_email_format","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #5: both fields are required — the browser blocks an empty
+    submission.","1797","test_login_empty_fields","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #32: all review fields are required — the browser blocks an
+    empty submission.","5890","test_product_review_empty_field","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #9: once the session cookie is gone, the next page load shows
+    the logged-out state instead of a broken page.","8009","test_session_expired_mid_use","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #27: the product page shows name, price, quantity and Add to cart.","3976","test_product_details_renders","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
 "Matrix #48: an automated axe-core (WCAG) scan of each key page finds
     no critical/serious violations beyond the page's known baseline — so
     new accessibility regressions fail the build while existing defects
-    stay tracked.","1711","test_no_new_accessibility_violations[/login]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #10: the login form can be completed with the keyboard alone
-    (Tab between fields, Enter to submit).","5819","test_login_keyboard_only_operable","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #17: a 3-digit mobile number should be rejected.","15441","test_signup_invalid_mobile_number_format","tests.signup","2026-11-18","skipped","2026-11-18","","test_signup","",""
-"Matrix #21: a script-injection string in search is treated as plain
-    text — no script runs and results still render.","5253","test_products_search_special_characters_handled_safely","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #28: a quantity of 0 should not be added to the cart.","9538","test_product_details_quantity_below_minimum_rejected","tests.product_details","2026-11-18","skipped","2026-11-18","","test_product_details","",""
+    stay tracked.","4881","test_no_new_accessibility_violations[/product_details/1]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #37: removing the only item returns the cart to its empty state.","10639","test_cart_remove_item_returns_to_empty","tests.cart","2026-11-19","passed","2026-11-19","","test_cart","",""
+"Matrix #41: the Delete Account nav link is hidden while logged out
+    and shown once logged in. Chosen as this flow's smoke test so smoke
+    runs never delete an account.","7266","test_delete_account_link_visibility","tests.account","2026-11-19","passed","2026-11-19","","test_account","",""
 "Matrix #48: an automated axe-core (WCAG) scan of each key page finds
     no critical/serious violations beyond the page's known baseline — so
     new accessibility regressions fail the build while existing defects
-    stay tracked.","3268","test_no_new_accessibility_violations[/products]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #43: a complete message with an attachment is accepted after
-    confirming the browser's ""Press OK to proceed!"" dialog.","1508","test_contact_us_submit_valid","tests.contact_us","2026-11-18","passed","2026-11-18","","test_contact_us","",""
+    stay tracked.","2163","test_no_new_accessibility_violations[/login]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
 "Matrix #18, #25: the products page shows the product grid and search
     box. #25 (cross-browser parity) is covered by this same test running
-    on Chromium, Firefox and WebKit in the nightly CI matrix.","3402","test_products_grid_renders","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
+    on Chromium, Firefox and WebKit in the nightly CI matrix.","4230","test_products_grid_renders","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
 "Matrix #19: searching a known term shows ""Searched Products"" with
-    matching results.","4542","test_products_search_matching_term","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #44: the required email field blocks an empty submission
-    before the confirm dialog appears.","1695","test_contact_us_empty_required_fields","tests.contact_us","2026-11-18","passed","2026-11-18","","test_contact_us","",""
-"Matrix #45: the email field's native validation rejects a malformed address.","1721","test_contact_us_invalid_email_format","tests.contact_us","2026-11-18","passed","2026-11-18","","test_contact_us","",""
-"Matrix #39: end-to-end purchase — cart → checkout (address and order
-    review shown) → payment → ""Order Placed!"" with an invoice link.","13672","test_checkout_happy_path","tests.checkout","2026-11-18","passed","2026-11-18","","test_checkout","",""
-"Matrix #7: logging out returns to /login and removes the logged-in
-    nav. Logs in fresh rather than using the cached session, because
-    logout invalidates the session server-side for every later test.","8917","test_logout_ends_session","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #12: if the login request fails at the network level, no
-    session is created — the user is still logged out once connectivity
-    returns. (The site shows no error of its own; the browser shows its
-    offline page.)","5986","test_login_network_failure_does_not_create_session","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1937","test_global_nav_link_resolves[/]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #42: a user can delete their own account — immediately, with
-    no confirmation step. The throwaway account is created through the
-    API (setup, not what's under test); the login and deletion are driven
-    through the UI. Never uses the shared test account.","11215","test_delete_account_completes","tests.account","2026-11-18","passed","2026-11-18","","test_account","",""
-"Matrix #42: a user can delete their own account — immediately, with
-    no confirmation step. The throwaway account is created through the
-    API (setup, not what's under test); the login and deletion are driven
-    through the UI. Never uses the shared test account.","7764","test_delete_account_completes","tests.account","2026-11-18","passed","2026-11-18","","test_account","",""
-"Matrix #26: the search box is keyboard-reachable and Enter submits it.","7402","test_products_search_and_filters_keyboard_accessible","tests.products","2026-11-18","skipped","2026-11-18","","test_products","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","4459","test_no_new_accessibility_violations[/]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #2, #3: wrong password and unregistered email both show the
-    same generic error and never log the user in.","3148","test_login_invalid_credentials[unregistered-email]","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #16: the signup email field's native validation blocks a
-    malformed address before reaching /signup.","1508","test_signup_malformed_email_format","tests.signup","2026-11-18","passed","2026-11-18","","test_signup","",""
-"Matrix #39: end-to-end purchase — cart → checkout (address and order
-    review shown) → payment → ""Order Placed!"" with an invoice link.","11626","test_checkout_happy_path","tests.checkout","2026-11-18","passed","2026-11-18","","test_checkout","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","1715","test_no_new_accessibility_violations[/login]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #41: the Delete Account nav link is hidden while logged out
-    and shown once logged in. Chosen as this flow's smoke test so smoke
-    runs never delete an account.","5560","test_delete_account_link_visibility","tests.account","2026-11-18","passed","2026-11-18","","test_account","",""
-"Matrix #41: the Delete Account nav link is hidden while logged out
-    and shown once logged in. Chosen as this flow's smoke test so smoke
-    runs never delete an account.","5385","test_delete_account_link_visibility","tests.account","2026-11-18","passed","2026-11-18","","test_account","",""
-"Matrix #9: once the session cookie is gone, the next page load shows
-    the logged-out state instead of a broken page.","4271","test_session_expired_mid_use","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #9: once the session cookie is gone, the next page load shows
-    the logged-out state instead of a broken page.","3903","test_session_expired_mid_use","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #33: the review email field rejects a malformed address.","2171","test_product_review_invalid_email_format","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #27: the product page shows name, price, quantity and Add to cart.","2642","test_product_details_renders","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #34: a fresh session's cart shows the empty message with a
-    link back to /products.","1375","test_cart_empty_state","tests.cart","2026-11-18","passed","2026-11-18","","test_cart","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","2689","test_global_nav_link_resolves[/view_cart]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #37: removing the only item returns the cart to its empty state.","7238","test_cart_remove_item_returns_to_empty","tests.cart","2026-11-18","passed","2026-11-18","","test_cart","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1396","test_global_nav_link_resolves[/view_cart]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #45: the email field's native validation rejects a malformed address.","1483","test_contact_us_invalid_email_format","tests.contact_us","2026-11-18","passed","2026-11-18","","test_contact_us","",""
-"Matrix #38: a logged-out user who proceeds to checkout is asked to
-    register / log in instead of reaching /checkout.","6682","test_checkout_requires_login","tests.checkout","2026-11-18","passed","2026-11-18","","test_checkout","",""
-"Matrix #14: signing up with an already-registered email shows
-    ""Email Address already exist!"" and never shows the account form.","1869","test_signup_duplicate_email","tests.signup","2026-11-18","passed","2026-11-18","","test_signup","",""
-"Matrix #5: both fields are required — the browser blocks an empty
-    submission.","1384","test_login_empty_fields","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #24: adding from the grid shows the ""Added!"" confirmation modal.","3218","test_products_add_to_cart_shows_confirmation","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1447","test_global_nav_link_resolves[/view_cart]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","3546","test_no_new_accessibility_violations[/]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #37: removing the only item returns the cart to its empty state.","7493","test_cart_remove_item_returns_to_empty","tests.cart","2026-11-18","passed","2026-11-18","","test_cart","",""
-"Matrix #6: a 500-character password (the field has no maxlength) is
-    handled like any wrong password — the normal error, no crash.","2518","test_login_long_password_input","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #35: an added product appears with its name, price, quantity
-    and total, plus Proceed To Checkout.","4948","test_cart_shows_added_item","tests.cart","2026-11-18","passed","2026-11-18","","test_cart","",""
-"Matrix #1: a registered user can log in and lands on the home page.","6068","test_login_valid_credentials","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1278","test_global_nav_link_resolves[/contact_us]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #14: signing up with an already-registered email shows
-    ""Email Address already exist!"" and never shows the account form.","1829","test_signup_duplicate_email","tests.signup","2026-11-18","passed","2026-11-18","","test_signup","",""
-"Matrix #8: /delete_account has no server-side auth guard — while
-    logged out it still renders ""Account Deleted!"" (only the nav link is
-    hidden). Low impact since there is no account to delete, but a real
-    authorization gap, so this test pins the current behavior.","1423","test_unauthenticated_access_to_delete_account_not_guarded","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #29: a large quantity (100) reaches the cart unchanged.","5652","test_product_details_quantity_large_value","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #24: adding from the grid shows the ""Added!"" confirmation modal.","4727","test_products_add_to_cart_shows_confirmation","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #2, #3: wrong password and unregistered email both show the
-    same generic error and never log the user in.","2982","test_login_invalid_credentials[wrong-password]","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #40: a card number containing letters should be rejected.","12739","test_checkout_invalid_payment_details_rejected","tests.checkout","2026-11-18","skipped","2026-11-18","","test_checkout","",""
-"Matrix #26: the search box is keyboard-reachable and Enter submits it.","7733","test_products_search_and_filters_keyboard_accessible","tests.products","2026-11-18","skipped","2026-11-18","","test_products","",""
-"Matrix #4: the email field's native type=""email"" validation blocks
-    the submission before it reaches the server.","1523","test_login_malformed_email_format","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #33: the review email field rejects a malformed address.","1475","test_product_review_invalid_email_format","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #34: a fresh session's cart shows the empty message with a
-    link back to /products.","1063","test_cart_empty_state","tests.cart","2026-11-18","passed","2026-11-18","","test_cart","",""
-"Matrix #27: the product page shows name, price, quantity and Add to cart.","1820","test_product_details_renders","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #19: searching a known term shows ""Searched Products"" with
-    matching results.","6355","test_products_search_matching_term","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #31: a complete review shows ""Thank you for your review."".","2546","test_product_review_submit_valid","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #32: all review fields are required — the browser blocks an
-    empty submission.","1850","test_product_review_empty_field","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","2943","test_global_nav_link_resolves[/products]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
+    matching results.","5915","test_products_search_matching_term","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
 "Matrix #30: the quantity field is type=""number"", so typed letters
     never become part of its value — however the browser handles the
     keystrokes (Chromium drops them; Firefox shows them but reports an
-    empty value).","1381","test_product_details_quantity_non_numeric_input","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #6: a 500-character password (the field has no maxlength) is
-    handled like any wrong password — the normal error, no crash.","2290","test_login_long_password_input","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #32: all review fields are required — the browser blocks an
-    empty submission.","2966","test_product_review_empty_field","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #22: Women → Dress opens the filtered ""Dress Products"" list.","6139","test_products_category_filter","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1365","test_global_nav_link_resolves[/login]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #22: Women → Dress opens the filtered ""Dress Products"" list.","5294","test_products_category_filter","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #28: a quantity of 0 should not be added to the cart.","7080","test_product_details_quantity_below_minimum_rejected","tests.product_details","2026-11-18","skipped","2026-11-18","","test_product_details","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","2584","test_global_nav_link_resolves[/]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","2360","test_no_new_accessibility_violations[/view_cart]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #31: a complete review shows ""Thank you for your review."".","3214","test_product_review_submit_valid","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #34: a fresh session's cart shows the empty message with a
-    link back to /products.","1483","test_cart_empty_state","tests.cart","2026-11-18","passed","2026-11-18","","test_cart","",""
-"Matrix #16: the signup email field's native validation blocks a
-    malformed address before reaching /signup.","1381","test_signup_malformed_email_format","tests.signup","2026-11-18","passed","2026-11-18","","test_signup","",""
-"Matrix #23: the Polo brand link opens the filtered ""Polo Products"" list.","5508","test_products_brand_filter","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #9: once the session cookie is gone, the next page load shows
-    the logged-out state instead of a broken page.","3420","test_session_expired_mid_use","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #35: an added product appears with its name, price, quantity
-    and total, plus Proceed To Checkout.","6613","test_cart_shows_added_item","tests.cart","2026-11-18","passed","2026-11-18","","test_cart","",""
-"Matrix #23: the Polo brand link opens the filtered ""Polo Products"" list.","4924","test_products_brand_filter","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","4149","test_no_new_accessibility_violations[/]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #46: a larger (~68 KB) attachment is accepted — no size
-    limit is documented, and none is enforced at this size.","1140","test_contact_us_file_upload_boundary","tests.contact_us","2026-11-18","passed","2026-11-18","","test_contact_us","",""
-"Matrix #8: /delete_account has no server-side auth guard — while
-    logged out it still renders ""Account Deleted!"" (only the nav link is
-    hidden). Low impact since there is no account to delete, but a real
-    authorization gap, so this test pins the current behavior.","1100","test_unauthenticated_access_to_delete_account_not_guarded","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #1: a registered user can log in and lands on the home page.","6206","test_login_valid_credentials","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","1707","test_no_new_accessibility_violations[/contact_us]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1248","test_global_nav_link_resolves[/api_list]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #29: a large quantity (100) reaches the cart unchanged.","4450","test_product_details_quantity_large_value","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #2, #3: wrong password and unregistered email both show the
-    same generic error and never log the user in.","2707","test_login_invalid_credentials[unregistered-email]","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #20: a search with no matches shows the heading and zero
-    products (the site has no dedicated ""no results"" message).","2727","test_products_search_no_results","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #29: a large quantity (100) reaches the cart unchanged.","6732","test_product_details_quantity_large_value","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #32: all review fields are required — the browser blocks an
-    empty submission.","1636","test_product_review_empty_field","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","1053","test_no_new_accessibility_violations[/login]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","1919","test_no_new_accessibility_violations[/view_cart]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1251","test_global_nav_link_resolves[/test_cases]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #22: Women → Dress opens the filtered ""Dress Products"" list.","5752","test_products_category_filter","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","2076","test_global_nav_link_resolves[/products]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #13: a new user can sign up, lands on ""Account Created!"",
-    and is logged in on continuing.","7955","test_signup_happy_path","tests.signup","2026-11-18","passed","2026-11-18","","test_signup","",""
-"Matrix #10: the login form can be completed with the keyboard alone
-    (Tab between fields, Enter to submit).","5909","test_login_keyboard_only_operable","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #15: the mobile number is required — the browser blocks the
-    submission and no account is created.","2766","test_signup_missing_required_field","tests.signup","2026-11-18","passed","2026-11-18","","test_signup","",""
-"Matrix #18, #25: the products page shows the product grid and search
-    box. #25 (cross-browser parity) is covered by this same test running
-    on Chromium, Firefox and WebKit in the nightly CI matrix.","1971","test_products_grid_renders","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #44: the required email field blocks an empty submission
-    before the confirm dialog appears.","3201","test_contact_us_empty_required_fields","tests.contact_us","2026-11-18","passed","2026-11-18","","test_contact_us","",""
-"Matrix #30: the quantity field is type=""number"", so typed letters
-    never become part of its value — however the browser handles the
-    keystrokes (Chromium drops them; Firefox shows them but reports an
-    empty value).","2090","test_product_details_quantity_non_numeric_input","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","3047","test_global_nav_link_resolves[/]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1485","test_global_nav_link_resolves[/test_cases]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #33: the review email field rejects a malformed address.","1315","test_product_review_invalid_email_format","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #13: a new user can sign up, lands on ""Account Created!"",
-    and is logged in on continuing.","5356","test_signup_happy_path","tests.signup","2026-11-18","passed","2026-11-18","","test_signup","",""
-"Matrix #1: a registered user can log in and lands on the home page.","5360","test_login_valid_credentials","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #37: removing the only item returns the cart to its empty state.","8270","test_cart_remove_item_returns_to_empty","tests.cart","2026-11-18","passed","2026-11-18","","test_cart","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1120","test_global_nav_link_resolves[/api_list]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #26: the search box is keyboard-reachable and Enter submits it.","8227","test_products_search_and_filters_keyboard_accessible","tests.products","2026-11-18","skipped","2026-11-18","","test_products","",""
-"Matrix #36: cart quantity is a greyed-out button, not an input —
-    quantity can only be chosen on the product page. The ""disabled"" is a
-    CSS class only (not the HTML disabled attribute), so that's what is
-    asserted.","3177","test_cart_quantity_is_not_editable","tests.cart","2026-11-18","passed","2026-11-18","","test_cart","",""
-"Matrix #23: the Polo brand link opens the filtered ""Polo Products"" list.","4737","test_products_brand_filter","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
+    empty value).","2916","test_product_details_quantity_non_numeric_input","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #40: a card number containing letters should be rejected.","15636","test_checkout_invalid_payment_details_rejected","tests.checkout","2026-11-19","skipped","2026-11-19","","test_checkout","",""
 "Matrix #4: the email field's native type=""email"" validation blocks
-    the submission before it reaches the server.","1981","test_login_malformed_email_format","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #7: logging out returns to /login and removes the logged-in
-    nav. Logs in fresh rather than using the cached session, because
-    logout invalidates the session server-side for every later test.","8992","test_logout_ends_session","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #11: the email input should have an accessible name beyond
-    its placeholder.","1374","test_login_fields_have_accessible_labels","tests.login","2026-11-18","skipped","2026-11-18","","test_login","",""
-"Matrix #14: signing up with an already-registered email shows
-    ""Email Address already exist!"" and never shows the account form.","2848","test_signup_duplicate_email","tests.signup","2026-11-18","passed","2026-11-18","","test_signup","",""
-"Matrix #17: a 3-digit mobile number should be rejected.","15112","test_signup_invalid_mobile_number_format","tests.signup","2026-11-18","skipped","2026-11-18","","test_signup","",""
-"Matrix #2, #3: wrong password and unregistered email both show the
-    same generic error and never log the user in.","2967","test_login_invalid_credentials[wrong-password]","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #20: a search with no matches shows the heading and zero
-    products (the site has no dedicated ""no results"" message).","4714","test_products_search_no_results","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #38: a logged-out user who proceeds to checkout is asked to
-    register / log in instead of reaching /checkout.","5344","test_checkout_requires_login","tests.checkout","2026-11-18","passed","2026-11-18","","test_checkout","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1231","test_global_nav_link_resolves[/login]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","4575","test_no_new_accessibility_violations[/products]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #46: a larger (~68 KB) attachment is accepted — no size
-    limit is documented, and none is enforced at this size.","2447","test_contact_us_file_upload_boundary","tests.contact_us","2026-11-18","passed","2026-11-18","","test_contact_us","",""
-"Matrix #45: the email field's native validation rejects a malformed address.","1333","test_contact_us_invalid_email_format","tests.contact_us","2026-11-18","passed","2026-11-18","","test_contact_us","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","2169","test_no_new_accessibility_violations[/contact_us]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1571","test_global_nav_link_resolves[/contact_us]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","3368","test_no_new_accessibility_violations[/product_details/1]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","1664","test_no_new_accessibility_violations[/product_details/1]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #41: the Delete Account nav link is hidden while logged out
-    and shown once logged in. Chosen as this flow's smoke test so smoke
-    runs never delete an account.","4412","test_delete_account_link_visibility","tests.account","2026-11-18","passed","2026-11-18","","test_account","",""
-"Matrix #10: the login form can be completed with the keyboard alone
-    (Tab between fields, Enter to submit).","5476","test_login_keyboard_only_operable","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #11: the email input should have an accessible name beyond
-    its placeholder.","1381","test_login_fields_have_accessible_labels","tests.login","2026-11-18","skipped","2026-11-18","","test_login","",""
+    the submission before it reaches the server.","1652","test_login_malformed_email_format","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
 "Matrix #12: if the login request fails at the network level, no
     session is created — the user is still logged out once connectivity
     returns. (The site shows no error of its own; the browser shows its
-    offline page.)","3216","test_login_network_failure_does_not_create_session","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #24: adding from the grid shows the ""Added!"" confirmation modal.","2637","test_products_add_to_cart_shows_confirmation","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
+    offline page.)","7631","test_login_network_failure_does_not_create_session","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","3676","test_global_nav_link_resolves[/products]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","4269","test_no_new_accessibility_violations[/products]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #29: a large quantity (100) reaches the cart unchanged.","7085","test_product_details_quantity_large_value","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #34: a fresh session's cart shows the empty message with a
+    link back to /products.","2300","test_cart_empty_state","tests.cart","2026-11-19","passed","2026-11-19","","test_cart","",""
 "Matrix #38: a logged-out user who proceeds to checkout is asked to
-    register / log in instead of reaching /checkout.","5948","test_checkout_requires_login","tests.checkout","2026-11-18","passed","2026-11-18","","test_checkout","",""
+    register / log in instead of reaching /checkout.","8832","test_checkout_requires_login","tests.checkout","2026-11-19","passed","2026-11-19","","test_checkout","",""
+"Matrix #35: an added product appears with its name, price, quantity
+    and total, plus Proceed To Checkout.","10115","test_cart_shows_added_item","tests.cart","2026-11-19","passed","2026-11-19","","test_cart","",""
+"Matrix #31: a complete review shows ""Thank you for your review."".","2949","test_product_review_submit_valid","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #21: a script-injection string in search is treated as plain
+    text — no script runs and results still render.","6699","test_products_search_special_characters_handled_safely","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #6: a 500-character password (the field has no maxlength) is
+    handled like any wrong password — the normal error, no crash.","3615","test_login_long_password_input","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #27: the product page shows name, price, quantity and Add to cart.","3708","test_product_details_renders","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #9: once the session cookie is gone, the next page load shows
+    the logged-out state instead of a broken page.","4240","test_session_expired_mid_use","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #19: searching a known term shows ""Searched Products"" with
+    matching results.","7043","test_products_search_matching_term","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #15: the mobile number is required — the browser blocks the
+    submission and no account is created.","4400","test_signup_missing_required_field","tests.signup","2026-11-19","passed","2026-11-19","","test_signup","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","1608","test_global_nav_link_resolves[/contact_us]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","2560","test_global_nav_link_resolves[/login]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #13: a new user can sign up, lands on ""Account Created!"",
+    and is logged in on continuing.","11704","test_signup_happy_path","tests.signup","2026-11-19","passed","2026-11-19","","test_signup","",""
+"Matrix #43: a complete message with an attachment is accepted after
+    confirming the browser's ""Press OK to proceed!"" dialog.","1771","test_contact_us_submit_valid","tests.contact_us","2026-11-19","passed","2026-11-19","","test_contact_us","",""
+"Matrix #28: a quantity of 0 should not be added to the cart.","11379","test_product_details_quantity_below_minimum_rejected","tests.product_details","2026-11-19","skipped","2026-11-19","","test_product_details","",""
+"Matrix #13: a new user can sign up, lands on ""Account Created!"",
+    and is logged in on continuing.","11016","test_signup_happy_path","tests.signup","2026-11-19","passed","2026-11-19","","test_signup","",""
+"Matrix #7: logging out returns to /login and removes the logged-in
+    nav. Logs in fresh rather than using the cached session, because
+    logout invalidates the session server-side for every later test.","12018","test_logout_ends_session","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","4829","test_no_new_accessibility_violations[/products]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #34: a fresh session's cart shows the empty message with a
+    link back to /products.","1650","test_cart_empty_state","tests.cart","2026-11-19","passed","2026-11-19","","test_cart","",""
+"Matrix #41: the Delete Account nav link is hidden while logged out
+    and shown once logged in. Chosen as this flow's smoke test so smoke
+    runs never delete an account.","8387","test_delete_account_link_visibility","tests.account","2026-11-19","passed","2026-11-19","","test_account","",""
+"Matrix #24: adding from the grid shows the ""Added!"" confirmation modal.","5661","test_products_add_to_cart_shows_confirmation","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #18, #25: the products page shows the product grid and search
+    box. #25 (cross-browser parity) is covered by this same test running
+    on Chromium, Firefox and WebKit in the nightly CI matrix.","5117","test_products_grid_renders","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #36: cart quantity is a greyed-out button, not an input —
+    quantity can only be chosen on the product page. The ""disabled"" is a
+    CSS class only (not the HTML disabled attribute), so that's what is
+    asserted.","8451","test_cart_quantity_is_not_editable","tests.cart","2026-11-19","passed","2026-11-19","","test_cart","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","2822","test_no_new_accessibility_violations[/view_cart]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #40: a card number containing letters should be rejected.","18168","test_checkout_invalid_payment_details_rejected","tests.checkout","2026-11-19","skipped","2026-11-19","","test_checkout","",""
+"Matrix #17: a 3-digit mobile number should be rejected.","12542","test_signup_invalid_mobile_number_format","tests.signup","2026-11-19","skipped","2026-11-19","","test_signup","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","2179","test_no_new_accessibility_violations[/login]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","1786","test_global_nav_link_resolves[/api_list]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #20: a search with no matches shows the heading and zero
+    products (the site has no dedicated ""no results"" message).","6451","test_products_search_no_results","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #1: a registered user can log in and lands on the home page.","7164","test_login_valid_credentials","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #39: end-to-end purchase — cart → checkout (address and order
+    review shown) → payment → ""Order Placed!"" with an invoice link.","21428","test_checkout_happy_path","tests.checkout","2026-11-19","passed","2026-11-19","","test_checkout","",""
+"Matrix #8: /delete_account has no server-side auth guard — while
+    logged out it still renders ""Account Deleted!"" (only the nav link is
+    hidden). Low impact since there is no account to delete, but a real
+    authorization gap, so this test pins the current behavior.","2026","test_unauthenticated_access_to_delete_account_not_guarded","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #8: /delete_account has no server-side auth guard — while
+    logged out it still renders ""Account Deleted!"" (only the nav link is
+    hidden). Low impact since there is no account to delete, but a real
+    authorization gap, so this test pins the current behavior.","1579","test_unauthenticated_access_to_delete_account_not_guarded","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #1: a registered user can log in and lands on the home page.","7475","test_login_valid_credentials","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","1984","test_global_nav_link_resolves[/contact_us]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","2491","test_global_nav_link_resolves[/login]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","3354","test_global_nav_link_resolves[/]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #2, #3: wrong password and unregistered email both show the
+    same generic error and never log the user in.","4549","test_login_invalid_credentials[wrong-password]","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #39: end-to-end purchase — cart → checkout (address and order
+    review shown) → payment → ""Order Placed!"" with an invoice link.","20110","test_checkout_happy_path","tests.checkout","2026-11-19","passed","2026-11-19","","test_checkout","",""
+"Matrix #46: a larger (~68 KB) attachment is accepted — no size
+    limit is documented, and none is enforced at this size.","1566","test_contact_us_file_upload_boundary","tests.contact_us","2026-11-19","passed","2026-11-19","","test_contact_us","",""
+"Matrix #35: an added product appears with its name, price, quantity
+    and total, plus Proceed To Checkout.","12241","test_cart_shows_added_item","tests.cart","2026-11-19","passed","2026-11-19","","test_cart","",""
+"Matrix #44: the required email field blocks an empty submission
+    before the confirm dialog appears.","2000","test_contact_us_empty_required_fields","tests.contact_us","2026-11-19","passed","2026-11-19","","test_contact_us","",""
+"Matrix #17: a 3-digit mobile number should be rejected.","17736","test_signup_invalid_mobile_number_format","tests.signup","2026-11-19","skipped","2026-11-19","","test_signup","",""
+"Matrix #32: all review fields are required — the browser blocks an
+    empty submission.","3300","test_product_review_empty_field","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #37: removing the only item returns the cart to its empty state.","12011","test_cart_remove_item_returns_to_empty","tests.cart","2026-11-19","passed","2026-11-19","","test_cart","",""
+"Matrix #22: Women → Dress opens the filtered ""Dress Products"" list.","7551","test_products_category_filter","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #17: a 3-digit mobile number should be rejected.","20151","test_signup_invalid_mobile_number_format","tests.signup","2026-11-19","skipped","2026-11-19","","test_signup","",""
+"Matrix #43: a complete message with an attachment is accepted after
+    confirming the browser's ""Press OK to proceed!"" dialog.","2080","test_contact_us_submit_valid","tests.contact_us","2026-11-19","passed","2026-11-19","","test_contact_us","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","7626","test_no_new_accessibility_violations[/]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","5345","test_global_nav_link_resolves[/]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #45: the email field's native validation rejects a malformed address.","2107","test_contact_us_invalid_email_format","tests.contact_us","2026-11-19","passed","2026-11-19","","test_contact_us","",""
+"Matrix #27: the product page shows name, price, quantity and Add to cart.","3288","test_product_details_renders","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #21: a script-injection string in search is treated as plain
+    text — no script runs and results still render.","4838","test_products_search_special_characters_handled_safely","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #16: the signup email field's native validation blocks a
+    malformed address before reaching /signup.","1953","test_signup_malformed_email_format","tests.signup","2026-11-19","passed","2026-11-19","","test_signup","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","1600","test_global_nav_link_resolves[/test_cases]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #2, #3: wrong password and unregistered email both show the
+    same generic error and never log the user in.","2630","test_login_invalid_credentials[wrong-password]","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #5: both fields are required — the browser blocks an empty
+    submission.","1654","test_login_empty_fields","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #9: once the session cookie is gone, the next page load shows
+    the logged-out state instead of a broken page.","5168","test_session_expired_mid_use","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #39: end-to-end purchase — cart → checkout (address and order
+    review shown) → payment → ""Order Placed!"" with an invoice link.","0","test_checkout_happy_path","tests.checkout","2026-11-19","broken","2026-11-19","","test_checkout","",""
+"Matrix #22: Women → Dress opens the filtered ""Dress Products"" list.","9449","test_products_category_filter","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","7219","test_no_new_accessibility_violations[/]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #11: the email input should have an accessible name beyond
+    its placeholder.","2024","test_login_fields_have_accessible_labels","tests.login","2026-11-19","skipped","2026-11-19","","test_login","",""
+"Matrix #16: the signup email field's native validation blocks a
+    malformed address before reaching /signup.","1837","test_signup_malformed_email_format","tests.signup","2026-11-19","passed","2026-11-19","","test_signup","",""
+"Matrix #5: both fields are required — the browser blocks an empty
+    submission.","995","test_login_empty_fields","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #22: Women → Dress opens the filtered ""Dress Products"" list.","7687","test_products_category_filter","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #2, #3: wrong password and unregistered email both show the
+    same generic error and never log the user in.","5222","test_login_invalid_credentials[unregistered-email]","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #26: the search box is keyboard-reachable and Enter submits it.","10821","test_products_search_and_filters_keyboard_accessible","tests.products","2026-11-19","skipped","2026-11-19","","test_products","",""
+"Matrix #14: signing up with an already-registered email shows
+    ""Email Address already exist!"" and never shows the account form.","3172","test_signup_duplicate_email","tests.signup","2026-11-19","passed","2026-11-19","","test_signup","",""
+"Matrix #23: the Polo brand link opens the filtered ""Polo Products"" list.","7252","test_products_brand_filter","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #12: if the login request fails at the network level, no
+    session is created — the user is still logged out once connectivity
+    returns. (The site shows no error of its own; the browser shows its
+    offline page.)","4830","test_login_network_failure_does_not_create_session","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
 "Matrix #42: a user can delete their own account — immediately, with
     no confirmation step. The throwaway account is created through the
     API (setup, not what's under test); the login and deletion are driven
-    through the UI. Never uses the shared test account.","8389","test_delete_account_completes","tests.account","2026-11-18","passed","2026-11-18","","test_account","",""
+    through the UI. Never uses the shared test account.","18887","test_delete_account_completes","tests.account","2026-11-19","failed","2026-11-19","","test_account","",""
 "Matrix #19: searching a known term shows ""Searched Products"" with
-    matching results.","3099","test_products_search_matching_term","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #6: a 500-character password (the field has no maxlength) is
-    handled like any wrong password — the normal error, no crash.","2374","test_login_long_password_input","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1620","test_global_nav_link_resolves[/contact_us]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1857","test_global_nav_link_resolves[/login]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #27: the product page shows name, price, quantity and Add to cart.","1844","test_product_details_renders","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1598","test_global_nav_link_resolves[/test_cases]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #17: a 3-digit mobile number should be rejected.","15379","test_signup_invalid_mobile_number_format","tests.signup","2026-11-18","skipped","2026-11-18","","test_signup","",""
-"Matrix #40: a card number containing letters should be rejected.","12848","test_checkout_invalid_payment_details_rejected","tests.checkout","2026-11-18","skipped","2026-11-18","","test_checkout","",""
-"Matrix #20: a search with no matches shows the heading and zero
-    products (the site has no dedicated ""no results"" message).","4725","test_products_search_no_results","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #35: an added product appears with its name, price, quantity
-    and total, plus Proceed To Checkout.","8276","test_cart_shows_added_item","tests.cart","2026-11-18","passed","2026-11-18","","test_cart","",""
-"Matrix #13: a new user can sign up, lands on ""Account Created!"",
-    and is logged in on continuing.","9197","test_signup_happy_path","tests.signup","2026-11-18","passed","2026-11-18","","test_signup","",""
-"Matrix #15: the mobile number is required — the browser blocks the
-    submission and no account is created.","3509","test_signup_missing_required_field","tests.signup","2026-11-18","passed","2026-11-18","","test_signup","",""
-"Matrix #8: /delete_account has no server-side auth guard — while
-    logged out it still renders ""Account Deleted!"" (only the nav link is
-    hidden). Low impact since there is no account to delete, but a real
-    authorization gap, so this test pins the current behavior.","1031","test_unauthenticated_access_to_delete_account_not_guarded","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #18, #25: the products page shows the product grid and search
-    box. #25 (cross-browser parity) is covered by this same test running
-    on Chromium, Firefox and WebKit in the nightly CI matrix.","2810","test_products_grid_renders","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #16: the signup email field's native validation blocks a
-    malformed address before reaching /signup.","1262","test_signup_malformed_email_format","tests.signup","2026-11-18","passed","2026-11-18","","test_signup","",""
-"Matrix #2, #3: wrong password and unregistered email both show the
-    same generic error and never log the user in.","3007","test_login_invalid_credentials[unregistered-email]","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","3297","test_no_new_accessibility_violations[/view_cart]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #12: if the login request fails at the network level, no
-    session is created — the user is still logged out once connectivity
-    returns. (The site shows no error of its own; the browser shows its
-    offline page.)","4354","test_login_network_failure_does_not_create_session","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #7: logging out returns to /login and removes the logged-in
-    nav. Logs in fresh rather than using the cached session, because
-    logout invalidates the session server-side for every later test.","8363","test_logout_ends_session","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #40: a card number containing letters should be rejected.","11869","test_checkout_invalid_payment_details_rejected","tests.checkout","2026-11-18","skipped","2026-11-18","","test_checkout","",""
-"Matrix #39: end-to-end purchase — cart → checkout (address and order
-    review shown) → payment → ""Order Placed!"" with an invoice link.","0","test_checkout_happy_path","tests.checkout","2026-11-18","broken","2026-11-18","","test_checkout","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","2457","test_no_new_accessibility_violations[/product_details/1]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #30: the quantity field is type=""number"", so typed letters
-    never become part of its value — however the browser handles the
-    keystrokes (Chromium drops them; Firefox shows them but reports an
-    empty value).","1680","test_product_details_quantity_non_numeric_input","tests.product_details","2026-11-18","passed","2026-11-18","","test_product_details","",""
-"Matrix #43: a complete message with an attachment is accepted after
-    confirming the browser's ""Press OK to proceed!"" dialog.","1466","test_contact_us_submit_valid","tests.contact_us","2026-11-18","passed","2026-11-18","","test_contact_us","",""
-"Matrix #44: the required email field blocks an empty submission
-    before the confirm dialog appears.","1359","test_contact_us_empty_required_fields","tests.contact_us","2026-11-18","passed","2026-11-18","","test_contact_us","",""
-"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
-    no critical/serious violations beyond the page's known baseline — so
-    new accessibility regressions fail the build while existing defects
-    stay tracked.","3971","test_no_new_accessibility_violations[/products]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
-"Matrix #21: a script-injection string in search is treated as plain
-    text — no script runs and results still render.","3833","test_products_search_special_characters_handled_safely","tests.products","2026-11-18","passed","2026-11-18","","test_products","",""
-"Matrix #43: a complete message with an attachment is accepted after
-    confirming the browser's ""Press OK to proceed!"" dialog.","2784","test_contact_us_submit_valid","tests.contact_us","2026-11-18","passed","2026-11-18","","test_contact_us","",""
-"Matrix #11: the email input should have an accessible name beyond
-    its placeholder.","1081","test_login_fields_have_accessible_labels","tests.login","2026-11-18","skipped","2026-11-18","","test_login","",""
-"Matrix #46: a larger (~68 KB) attachment is accepted — no size
-    limit is documented, and none is enforced at this size.","862","test_contact_us_file_upload_boundary","tests.contact_us","2026-11-18","passed","2026-11-18","","test_contact_us","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","1545","test_global_nav_link_resolves[/api_list]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #5: both fields are required — the browser blocks an empty
-    submission.","1443","test_login_empty_fields","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
-"Matrix #47: every in-scope nav destination loads with a 2xx
-    response and a rendered header. The only coverage the static Test
-    Cases / API Testing pages get.","3599","test_global_nav_link_resolves[/products]","tests.nav","2026-11-18","passed","2026-11-18","","test_global_nav","",""
-"Matrix #39: end-to-end purchase — cart → checkout (address and order
-    review shown) → payment → ""Order Placed!"" with an invoice link.","10492","test_checkout_happy_path","tests.checkout","2026-11-18","passed","2026-11-18","","test_checkout","",""
+    matching results.","6676","test_products_search_matching_term","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
 "Matrix #36: cart quantity is a greyed-out button, not an input —
     quantity can only be chosen on the product page. The ""disabled"" is a
     CSS class only (not the HTML disabled attribute), so that's what is
-    asserted.","5326","test_cart_quantity_is_not_editable","tests.cart","2026-11-18","passed","2026-11-18","","test_cart","",""
-"Matrix #5: both fields are required — the browser blocks an empty
-    submission.","2113","test_login_empty_fields","tests.login","2026-11-18","passed","2026-11-18","","test_login","",""
+    asserted.","9283","test_cart_quantity_is_not_editable","tests.cart","2026-11-19","passed","2026-11-19","","test_cart","",""
+"Matrix #46: a larger (~68 KB) attachment is accepted — no size
+    limit is documented, and none is enforced at this size.","2080","test_contact_us_file_upload_boundary","tests.contact_us","2026-11-19","passed","2026-11-19","","test_contact_us","",""
+"Matrix #33: the review email field rejects a malformed address.","2436","test_product_review_invalid_email_format","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #40: a card number containing letters should be rejected.","10257","test_checkout_invalid_payment_details_rejected","tests.checkout","2026-11-19","skipped","2026-11-19","","test_checkout","",""
+"Matrix #1: a registered user can log in and lands on the home page.","8084","test_login_valid_credentials","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","1855","test_global_nav_link_resolves[/api_list]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","2604","test_global_nav_link_resolves[/view_cart]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","5055","test_global_nav_link_resolves[/products]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","1552","test_global_nav_link_resolves[/test_cases]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #6: a 500-character password (the field has no maxlength) is
+    handled like any wrong password — the normal error, no crash.","2770","test_login_long_password_input","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #7: logging out returns to /login and removes the logged-in
+    nav. Logs in fresh rather than using the cached session, because
+    logout invalidates the session server-side for every later test.","12872","test_logout_ends_session","tests.login","2026-11-19","failed","2026-11-19","","test_login","",""
+"Matrix #46: a larger (~68 KB) attachment is accepted — no size
+    limit is documented, and none is enforced at this size.","1336","test_contact_us_file_upload_boundary","tests.contact_us","2026-11-19","passed","2026-11-19","","test_contact_us","",""
+"Matrix #18, #25: the products page shows the product grid and search
+    box. #25 (cross-browser parity) is covered by this same test running
+    on Chromium, Firefox and WebKit in the nightly CI matrix.","5441","test_products_grid_renders","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #36: cart quantity is a greyed-out button, not an input —
+    quantity can only be chosen on the product page. The ""disabled"" is a
+    CSS class only (not the HTML disabled attribute), so that's what is
+    asserted.","9248","test_cart_quantity_is_not_editable","tests.cart","2026-11-19","passed","2026-11-19","","test_cart","",""
 "Matrix #48: an automated axe-core (WCAG) scan of each key page finds
     no critical/serious violations beyond the page's known baseline — so
     new accessibility regressions fail the build while existing defects
-    stay tracked.","1596","test_no_new_accessibility_violations[/contact_us]","tests.accessibility","2026-11-18","passed","2026-11-18","","test_accessibility","",""
+    stay tracked.","2929","test_no_new_accessibility_violations[/product_details/1]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #20: a search with no matches shows the heading and zero
+    products (the site has no dedicated ""no results"" message).","5103","test_products_search_no_results","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #9: once the session cookie is gone, the next page load shows
+    the logged-out state instead of a broken page.","0","test_session_expired_mid_use","tests.login","2026-11-19","broken","2026-11-19","","test_login","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","4392","test_no_new_accessibility_violations[/contact_us]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
 "Matrix #15: the mobile number is required — the browser blocks the
-    submission and no account is created.","2523","test_signup_missing_required_field","tests.signup","2026-11-18","passed","2026-11-18","","test_signup","",""
+    submission and no account is created.","4566","test_signup_missing_required_field","tests.signup","2026-11-19","passed","2026-11-19","","test_signup","",""
+"Matrix #38: a logged-out user who proceeds to checkout is asked to
+    register / log in instead of reaching /checkout.","10027","test_checkout_requires_login","tests.checkout","2026-11-19","passed","2026-11-19","","test_checkout","",""
+"Matrix #31: a complete review shows ""Thank you for your review."".","2060","test_product_review_submit_valid","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","3220","test_no_new_accessibility_violations[/view_cart]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #29: a large quantity (100) reaches the cart unchanged.","7462","test_product_details_quantity_large_value","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #45: the email field's native validation rejects a malformed address.","2647","test_contact_us_invalid_email_format","tests.contact_us","2026-11-19","passed","2026-11-19","","test_contact_us","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","1934","test_global_nav_link_resolves[/login]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","1991","test_global_nav_link_resolves[/test_cases]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #14: signing up with an already-registered email shows
+    ""Email Address already exist!"" and never shows the account form.","3713","test_signup_duplicate_email","tests.signup","2026-11-19","passed","2026-11-19","","test_signup","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","3222","test_global_nav_link_resolves[/api_list]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #13: a new user can sign up, lands on ""Account Created!"",
+    and is logged in on continuing.","11824","test_signup_happy_path","tests.signup","2026-11-19","passed","2026-11-19","","test_signup","",""
+"Matrix #11: the email input should have an accessible name beyond
+    its placeholder.","2193","test_login_fields_have_accessible_labels","tests.login","2026-11-19","skipped","2026-11-19","","test_login","",""
+"Matrix #44: the required email field blocks an empty submission
+    before the confirm dialog appears.","2067","test_contact_us_empty_required_fields","tests.contact_us","2026-11-19","passed","2026-11-19","","test_contact_us","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","2618","test_no_new_accessibility_violations[/contact_us]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #33: the review email field rejects a malformed address.","3726","test_product_review_invalid_email_format","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #11: the email input should have an accessible name beyond
+    its placeholder.","2007","test_login_fields_have_accessible_labels","tests.login","2026-11-19","skipped","2026-11-19","","test_login","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","5263","test_no_new_accessibility_violations[/]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","2138","test_global_nav_link_resolves[/view_cart]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","4737","test_no_new_accessibility_violations[/products]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #8: /delete_account has no server-side auth guard — while
+    logged out it still renders ""Account Deleted!"" (only the nav link is
+    hidden). Low impact since there is no account to delete, but a real
+    authorization gap, so this test pins the current behavior.","2408","test_unauthenticated_access_to_delete_account_not_guarded","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #29: a large quantity (100) reaches the cart unchanged.","9512","test_product_details_quantity_large_value","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #23: the Polo brand link opens the filtered ""Polo Products"" list.","5707","test_products_brand_filter","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #41: the Delete Account nav link is hidden while logged out
+    and shown once logged in. Chosen as this flow's smoke test so smoke
+    runs never delete an account.","8111","test_delete_account_link_visibility","tests.account","2026-11-19","passed","2026-11-19","","test_account","",""
+"Matrix #45: the email field's native validation rejects a malformed address.","1700","test_contact_us_invalid_email_format","tests.contact_us","2026-11-19","passed","2026-11-19","","test_contact_us","",""
+"Matrix #10: the login form can be completed with the keyboard alone
+    (Tab between fields, Enter to submit).","7563","test_login_keyboard_only_operable","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #42: a user can delete their own account — immediately, with
+    no confirmation step. The throwaway account is created through the
+    API (setup, not what's under test); the login and deletion are driven
+    through the UI. Never uses the shared test account.","15431","test_delete_account_completes","tests.account","2026-11-19","passed","2026-11-19","","test_account","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","2116","test_no_new_accessibility_violations[/login]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #30: the quantity field is type=""number"", so typed letters
+    never become part of its value — however the browser handles the
+    keystrokes (Chromium drops them; Firefox shows them but reports an
+    empty value).","4491","test_product_details_quantity_non_numeric_input","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #16: the signup email field's native validation blocks a
+    malformed address before reaching /signup.","2226","test_signup_malformed_email_format","tests.signup","2026-11-19","passed","2026-11-19","","test_signup","",""
+"Matrix #33: the review email field rejects a malformed address.","3894","test_product_review_invalid_email_format","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #4: the email field's native type=""email"" validation blocks
+    the submission before it reaches the server.","2739","test_login_malformed_email_format","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #12: if the login request fails at the network level, no
+    session is created — the user is still logged out once connectivity
+    returns. (The site shows no error of its own; the browser shows its
+    offline page.)","5697","test_login_network_failure_does_not_create_session","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #24: adding from the grid shows the ""Added!"" confirmation modal.","6845","test_products_add_to_cart_shows_confirmation","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","4955","test_no_new_accessibility_violations[/product_details/1]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #6: a 500-character password (the field has no maxlength) is
+    handled like any wrong password — the normal error, no crash.","3900","test_login_long_password_input","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #23: the Polo brand link opens the filtered ""Polo Products"" list.","6953","test_products_brand_filter","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #32: all review fields are required — the browser blocks an
+    empty submission.","3191","test_product_review_empty_field","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #28: a quantity of 0 should not be added to the cart.","11209","test_product_details_quantity_below_minimum_rejected","tests.product_details","2026-11-19","skipped","2026-11-19","","test_product_details","",""
+"Matrix #31: a complete review shows ""Thank you for your review."".","5610","test_product_review_submit_valid","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #35: an added product appears with its name, price, quantity
+    and total, plus Proceed To Checkout.","10484","test_cart_shows_added_item","tests.cart","2026-11-19","passed","2026-11-19","","test_cart","",""
+"Matrix #10: the login form can be completed with the keyboard alone
+    (Tab between fields, Enter to submit).","7100","test_login_keyboard_only_operable","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #30: the quantity field is type=""number"", so typed letters
+    never become part of its value — however the browser handles the
+    keystrokes (Chromium drops them; Firefox shows them but reports an
+    empty value).","3129","test_product_details_quantity_non_numeric_input","tests.product_details","2026-11-19","passed","2026-11-19","","test_product_details","",""
+"Matrix #42: a user can delete their own account — immediately, with
+    no confirmation step. The throwaway account is created through the
+    API (setup, not what's under test); the login and deletion are driven
+    through the UI. Never uses the shared test account.","9916","test_delete_account_completes","tests.account","2026-11-19","passed","2026-11-19","","test_account","",""
+"Matrix #10: the login form can be completed with the keyboard alone
+    (Tab between fields, Enter to submit).","8113","test_login_keyboard_only_operable","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","2482","test_no_new_accessibility_violations[/view_cart]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","2045","test_global_nav_link_resolves[/view_cart]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #2, #3: wrong password and unregistered email both show the
+    same generic error and never log the user in.","2273","test_login_invalid_credentials[unregistered-email]","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #43: a complete message with an attachment is accepted after
+    confirming the browser's ""Press OK to proceed!"" dialog.","2863","test_contact_us_submit_valid","tests.contact_us","2026-11-19","passed","2026-11-19","","test_contact_us","",""
+"Matrix #28: a quantity of 0 should not be added to the cart.","13950","test_product_details_quantity_below_minimum_rejected","tests.product_details","2026-11-19","skipped","2026-11-19","","test_product_details","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","5388","test_global_nav_link_resolves[/products]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
+"Matrix #48: an automated axe-core (WCAG) scan of each key page finds
+    no critical/serious violations beyond the page's known baseline — so
+    new accessibility regressions fail the build while existing defects
+    stay tracked.","2059","test_no_new_accessibility_violations[/contact_us]","tests.accessibility","2026-11-19","passed","2026-11-19","","test_accessibility","",""
+"Matrix #37: removing the only item returns the cart to its empty state.","9022","test_cart_remove_item_returns_to_empty","tests.cart","2026-11-19","passed","2026-11-19","","test_cart","",""
+"Matrix #34: a fresh session's cart shows the empty message with a
+    link back to /products.","1477","test_cart_empty_state","tests.cart","2026-11-19","passed","2026-11-19","","test_cart","",""
+"Matrix #24: adding from the grid shows the ""Added!"" confirmation modal.","5948","test_products_add_to_cart_shows_confirmation","tests.products","2026-11-19","passed","2026-11-19","","test_products","",""
+"Matrix #7: logging out returns to /login and removes the logged-in
+    nav. Logs in fresh rather than using the cached session, because
+    logout invalidates the session server-side for every later test.","13110","test_logout_ends_session","tests.login","2026-11-19","passed","2026-11-19","","test_login","",""
+"Matrix #47: every in-scope nav destination loads with a 2xx
+    response and a rendered header. The only coverage the static Test
+    Cases / API Testing pages get.","1732","test_global_nav_link_resolves[/contact_us]","tests.nav","2026-11-19","passed","2026-11-19","","test_global_nav","",""
